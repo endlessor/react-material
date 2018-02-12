@@ -53,10 +53,6 @@ app.get('/dashboard', function (req, res) {
   res.sendFile(path.resolve(__dirname, '../public/views/dashboard.html'));
 })
 
-// Sales page
-app.get('/sales', function (req, res) {
-  res.sendFile(path.resolve(__dirname, '../public/views/sales.html'));
-})
 
 //test purpose
 app.get('/dashboard-login', function (req, res) {

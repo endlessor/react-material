@@ -10,9 +10,9 @@ function initApp() {
     makeTemplates();
     bindSettings();
     bindLeftPanel();
-    // $('.mainContainer .menus .menu[data-id="dashboard"]').trigger(eventToUse);
+    $('.mainContainer .menus .menu[data-id="dashboard"]').trigger(eventToUse);
   } else {
-  window.location.href = window.location.origin + '/dashboard-login';
+    window.location.href = window.location.origin + '/dashboard-login';
   }
 }
 
@@ -20,11 +20,10 @@ function bindSettings() {
 
 }
 
-
 function bindLeftPanel() {
   bind('.mainContainer .menus .menu', function () {
     var id = $(this).data('id');
-    // eval(id)({});
+    eval(id)({});
   })
 }
 

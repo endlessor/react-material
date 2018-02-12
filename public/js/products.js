@@ -5,6 +5,8 @@ var category;
 
 function products() {
   console.log('--->>> Initializing Products');
+  $('.mainContainer .menus .menu .text i.active').removeClass('active');
+  $('[data-id=products] i').addClass('active');
   $('.addProductContainer').hide();
   loader('s', 'Please wait while Products are loading...');
   $.ajax({
@@ -116,7 +118,19 @@ function renderProducts(p) {
       });
 
     })
-
+  
+    bind('.mainContainer .addProductContainer, .mainContainer .menus', function (event) {
+      if($('.mainContainer .addProductContainer .pop-up').css('display') === 'block'){
+        $('.addProductContainer').hide();
+      } else {
+        event.stopPropagation();
+      }
+    });
+  
+    bind('.mainContainer .addProductContainer .pop-up', function () {
+      event.stopPropagation();
+    })
+    
     bind('.mainContainer .addProductContainer .pop-up .p-row.cancel', function () {
       $('.addProductContainer').hide();
     })
@@ -174,7 +188,19 @@ function renderProducts(p) {
       });
 
     })
-
+  
+    bind('.mainContainer .addProductContainer, .mainContainer .menus', function (event) {
+      if($('.mainContainer .addProductContainer .pop-up').css('display') === 'block'){
+        $('.addProductContainer').hide();
+      } else {
+        event.stopPropagation();
+      }
+    });
+  
+    bind('.mainContainer .addProductContainer .pop-up', function () {
+      event.stopPropagation();
+    })
+    
     bind('.mainContainer .addProductContainer .pop-up .p-row.cancel', function () {
       $('.addProductContainer').hide();
     })

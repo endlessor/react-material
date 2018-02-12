@@ -4,6 +4,8 @@ var _currentOrder;
 function sales() {
   console.log('--->>> Initializing Sales');
   $('.mainContainer .dashboard .header').html('All Orders<span class="sub-text">View all Sales</span>');
+  $('.mainContainer .menus .menu .text i.active').removeClass('active');
+  $('[data-id=sales] i').addClass('active');
   loader('s', 'Please wait while Sales is loading data...');
   var form_data1 = new FormData();
   form_data1.append('keyword', '*');
@@ -22,6 +24,7 @@ function sales() {
 
   function success(_d) {
     _g.orders = _d;
+    console.log(_d);
     showUI(_d);
     getOrderTypes(_d);
     bindExport();

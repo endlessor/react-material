@@ -84,6 +84,8 @@
 <script src="../js/base.js"></script>
 <script src="../js/index.js"></script>
 <script src="../js/dashboard.js"></script>
+<script src="../js/sales.js"></script>
+<script src="../js/products.js"></script>
 <script src="../js/pop-up.js"></script>
 
 <script type="text/x-jsrender" id="loaderTemplate">
@@ -150,64 +152,175 @@
         </div>
       </div>
     </div>
+</script>
 
-    <!--<div class="reports">-->
-        <!--<div class="downloadAll">-->
-            <!--Download All-->
-        <!--</div>-->
+<script id="userTemplate" type="text/x-jsrender">
+    <div class="user">
+        <div class="name">
+            <div class="logo">{{:l}}</div>
+            <div class="text">{{:name}}</div>
+        </div>
+        <div class="name price">
+            ${{:s}}
+        </div>
+        <div class="name phone">
+            <img src="../images/icon-phone.png" class="logo icon">
+            <div class="text number">{{:phone}}</div>
+        </div>
+    </div>
+</script>
 
-        <!--<div class="report">-->
-            <!--<div class="reportHeader">-->
-                <!--Monthly Total Sales-->
-            <!--</div>-->
-            <!--<div class="date">-->
-                <!--{{:~getToday()}}-->
-            <!--</div>-->
-            <!--<div class="buttons" data-id="mts">-->
-                <!--<div class="button border download">Download</div>-->
-                <!--<div class="button email">Email to Colleague</div>-->
-            <!--</div>-->
-        <!--</div>-->
+<script type="text/x-jsrender" id="salesTemplate">
+    <div class="allOrdersContainer">
+        <div class="searchArea">
+            <p class="inputArea">
+                <input class="inputArea-1" type="text" placeholder="Seach for product name, id or description">
+                <i class="material-icons searchButton">search</i>
+            </p>
+        </div>
+        <div class="orderHeader">
+            <div class="col col-1">NAME</div>
+            <div class="col col-2">REQUEST ID</div>
+            <div class="col col-3">DATE SENT</div>
+            <div class="col col-4">STATUS</div>
+            <div class="col col-5">DEPARTMENT</div>
+            <div class="col col-6">TOTAL SALE</div>
+            <div class="col col-7">DETAILS</div>
+        </div>
+        <div class="orders">
+            {{for d}}
+            <div class="order">
+                <div class="col col-1">{{: _raw.orders.action}}</div>
+                <div class="col col-2">{{: _raw.request_no}}</div>
+                <div class="col col-3">{{:_raw.submitted}}</div>
+                <div class="col col-4">{{:_raw.status}}</div>
+                <div class="col col-5">{{:email_time}}</div>
+                <div class="col col-6">Details</div>
+                <div class="col col-7"><i class="material-icons">keyboard_arrow_right</i></div>
+            </div>
+            {{/for}}
+        </div>
+        <div class="title-content">
+            <p>
+              <a>Show pending orders</a>
+              <span class="controls">
+                <i class="material-icons">keyboard_arrow_right</i>
+                <i class="material-icons">keyboard_arrow_left</i>
+              </span>
+            </p>
+        </div>
+    </div>
+</script>
 
-        <!--<div class="report">-->
-            <!--<div class="reportHeader">-->
-                <!--Quarterly Total Sales-->
-            <!--</div>-->
-            <!--<div class="date">-->
-                <!--{{:~getToday()}}-->
-            <!--</div>-->
-            <!--<div class="buttons" data-id="qts">-->
-                <!--<div class="button border download">Download</div>-->
-                <!--<div class="button email">Email to Colleague</div>-->
-            <!--</div>-->
-        <!--</div>-->
+<script id="userTemplate" type="text/x-jsrender">
+    <div class="user">
+        <div class="name">
+            <div class="logo">{{:l}}</div>
+            <div class="text">{{:name}}</div>
+        </div>
+        <div class="name price">
+            ${{:s}}
+        </div>
+        <div class="name phone">
+            <img src="../images/icon-phone.png" class="logo icon">
+            <div class="text number">{{:phone}}</div>
+        </div>
+    </div>
+</script>
 
-        <!--<div class="report">-->
-            <!--<div class="reportHeader">-->
-                <!--Accesory Total Sales-->
-            <!--</div>-->
-            <!--<div class="date">-->
-                <!--{{:~getToday()}}-->
-            <!--</div>-->
-            <!--<div class="buttons" data-id="ats">-->
-                <!--<div class="button border download">Download</div>-->
-                <!--<div class="button email">Email to Colleague</div>-->
-            <!--</div>-->
-        <!--</div>-->
+<script type="text/x-jsrender" id="salesTemplate">
+    <div class="allOrdersContainer">
+        <div class="searchArea">
+            <div class="inputArea">
+                <input class="inputArea-1" type="text" placeholder="Search by SKU, Product Name or Request Number">
+            </div>
+            <img src="../images/search.png" class="searchButton">
+            <div class="filter">
+                <div class="text">All</div>
+                <img src="../images/down-arrow.png" class="dropdownButton">
+                <div class="dropdown"></div>
+            </div>
+        </div>
+        <div class="orderHeader">
+            <div class="col col-1">Request No</div>
+            <div class="col col-2">Order Action</div>
+            <div class="col col-3">Requestor</div>
+            <div class="col col-4">Email Date/Time</div>
+            <div class="col col-5">Status</div>
+            <div class="col col-6">Action</div>
+        </div>
+        <div class="orders">
+            {{for d}}
+            <div class="order">
+                <div class="col col-1">{{: _raw.request_no}}</div>
+                <div class="col col-2">{{: _raw.orders.action}}</div>
+                <div class="col col-3">{{:_raw.requestor}}</div>
+                <div class="col col-4">{{:_raw.email_time}}</div>
+                <div class="col col-5">{{:status}}</div>
+                <div class="col col-6">Details</div>
+            </div>
+            {{/for}}
+        </div>
+    </div>
+</script>
 
-        <!--<div class="report">-->
-            <!--<div class="reportHeader">-->
-                <!--Quarterly Accesory Sales-->
-            <!--</div>-->
-            <!--<div class="date">-->
-                <!--{{:~getToday()}}-->
-            <!--</div>-->
-            <!--<div class="buttons" data-id="qas">-->
-                <!--<div class="button border download">Download</div>-->
-                <!--<div class="button email">Email to Colleague</div>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
+<script id="productTemplate" type="text/x-jsrender">
+    <div class="allOrdersContainer productsContainer">
+        <div class="orderHeader" style="top:0rem">
+            <div class="col col-1">NAME</div>
+            <div class="col col-2">CATEGORY</div>
+            <div class="col col-3">SKU CODE</div>
+            <div class="col col-4">NICKNAME</div>
+            <div class="col col-4">ACTIONS</div>
+        </div>
+        <div class="orders" style="top:10rem">
+            {{for d}} {{if isActive ==1}}
+            <div class="order">
+                <div class="col col-1">{{:name}}</div>
+                <div class="col col-2">{{:category}}</div>
+                <div class="col col-3">{{:sku}}</div>
+                <div class="col col-4">{{:nickname}}</div>
+                <div class="col col-5">
+                    <span data-index="{{:#index}}" class="col product-edit">Edit</span>
+                    <span data-index="{{:#index}}" class="col product-delete">Delete</span>
+                </div>
+            </div>
+            {{/if}} {{/for}}
+        </div>
+        <div class="title-content">
+            <p>
+              <a class="product-add" style="cursor: pointer">Add Product</a>
+              <span class="controls">
+                <i class="material-icons">keyboard_arrow_right</i>
+                <i class="material-icons">keyboard_arrow_left</i>
+              </span>
+            </p>
+      </div>
+    </div>
+</script>
+
+<script id="addProductTemplate" type="text/x-jsrender">
+    <div class="pop-up">
+        <label for="usr">Name</label>
+        <input type="text" class="p-row name" value="{{:name}}">
+        <br>
+        <label for="usr">Category</label>
+        <select class="p-row c">
+          {{for categories}}
+                <option class="p-row c">
+                    <div class="check {{:class}}"></div>
+                    <div class="text">{{:name}}</div>
+                </option>
+                {{/for}}
+        </select>
+        <br>
+        <label for="usr">SKU Code</label>
+        <input type="text" class="p-row code" value="{{:sku}}">
+        <br>
+        <label for="usr">Nickname</label>
+        <input type="text" class="p-row nname" value="{{:nickname}}">
+        <div class="p-row nob f save">Save</div>
+    </div>
 </script>
 
 </html>

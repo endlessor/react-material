@@ -1,6 +1,8 @@
 function dashboard() {
   console.log('--->>> Initializing Dashboard');
   $('.mainContainer .dashboard .header').html('Dashboard<span class="sub-text">View all Sales</span>');
+  $('.mainContainer .menus .menu .text i.active').removeClass('active');
+  $('[data-id=dashboard] i').addClass('active');
   loader('s', 'Please wait while dashboard is loading data...');
   execute('getDashboardData', {
     "cux": "verizon"
