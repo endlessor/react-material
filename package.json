@@ -16,7 +16,7 @@
     "compression": "^1.0.3",
     "cors": "^2.5.2",
     "excel": "^0.1.7",
-    "exceljs": "^0.8.1",
+    "exceljs": "^4.3.0",
     "express-session": "^1.15.6",
     "helmet": "^1.3.0",
     "jade": "^1.7.0",
